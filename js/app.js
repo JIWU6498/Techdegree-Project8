@@ -1,4 +1,4 @@
-const gridContainer = document.getElementById('grid-container')
+const gridContainer = document.getElementById('grid-container');
 
 // ------------------------------------------
 //  FETCH FUNCTIONS
@@ -40,14 +40,22 @@ function mapInformation(data) {
         `
     ).join('');
     gridContainer.innerHTML = employee;
+   
+    getModalView();
 }
 
 
 // ------------------------------------------
 //  EVENT LISTENERS
 // ------------------------------------------
+function getModalView(){
+    const gridEmployeeContainer = document.getElementById('grid-item-employee');
+    gridEmployeeContainer.addEventListener('click',(event) =>{
+        alert("You clcik");
+        console.log(this.event.target);
 
-
+    });
+}
 // ------------------------------------------
 //  POST DATA
 // ------------------------------------------
