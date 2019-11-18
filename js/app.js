@@ -29,32 +29,46 @@ function mapInformation(data) {
     console.log(employees);
     const employee = employees.map(employee =>
         `
-        <div id="grid-item-employee">
+        <button id="grid-item-employee">
             <img class="avatar" src="${employee.picture.large}"/>
             <div class="info">
                 <b class="name">${employee.name.first + ' ' + employee.name.last}</b>
                 <p class="email">${employee.email}</p>
                 <p class="city">${employee.location.city}
             </div>
-        </div>
+        </button>
         `
     ).join('');
     gridContainer.innerHTML = employee;
    
-    getModalView();
+    getModalView(employees);
 }
 
 
 // ------------------------------------------
 //  EVENT LISTENERS
 // ------------------------------------------
-function getModalView(){
-    const gridEmployeeContainer = document.getElementById('grid-item-employee');
-    gridEmployeeContainer.addEventListener('click',(event) =>{
-        alert("You clcik");
-        console.log(this.event.target);
+const employeesCard = document.getElementsByTagName('button');
 
-    });
+function getModalView(employees){
+    for(let i=0; i<employeesCard.length; i++){
+        employeesCard[i].addEventListener('click',(event)=>{
+            const employeeName= employeesCard[i].querySelector('.name').textContent;
+            console.log(employeeName);
+            generateHTML(employeeName);
+        });
+    };
+    function generateHTML(employeeName,employees){
+       
+        const html=`
+            <div id="overlay">
+               <img class="overlay-avatar"></img> 
+                <p>
+            </div>
+        
+        
+        `
+    };
 }
 // ------------------------------------------
 //  POST DATA
