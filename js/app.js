@@ -62,6 +62,8 @@ function getModalView(employees) {
 
     const modal = (employee) => {
         const modalContainer = document.getElementById("modal-container");
+        //The navigator and formats date depending on users locale.
+        const birthday=new Date(Date.parse(employee.dob.date)).toLocaleDateString(navigator.language);
         modalContainer.innerHTML = `
         <div class="modal">
             <button id="close">X</button>
@@ -72,18 +74,17 @@ function getModalView(employees) {
                 <p class="modal-text cap">${employee.location.city}</p><hr>
                 <p class="modal-text">${employee.phone}</p>
                 <p class="modal-text cap">${employee.location.street.number} ${employee.location.street.name}, ${employee.location.state} ${employee.location.postcode}</p>
-                
+                <p class="modal-text">Birthday:${birthday}</p>
              </div>
         </div>
         `;
         modalContainer.style.display="block";
         const close=document.getElementById("close");
-        console.log(close);
+       
         close.addEventListener("click",(event)=>{
             modalContainer.style.display="none";
         });
 
-      
     }
 
    
