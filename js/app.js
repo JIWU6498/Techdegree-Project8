@@ -56,17 +56,18 @@ const employeesCard = document.getElementsByTagName('button');
 function getModalView(employees) {
     for (let i = 0; i < employeesCard.length; i++) {
         employeesCard[i].addEventListener('click', (event) => {
-            modal(employees[i]);
+            modal(employees[i],i);
         });
     };
 
-    const modal = (employee) => {
+    const modal = (employee,index) => {
         const modalContainer = document.getElementById("modal-container");
         //The navigator and formats date depending on users locale.
         const birthday=new Date(Date.parse(employee.dob.date)).toLocaleDateString(navigator.language);
         modalContainer.innerHTML = `
         <div class="modal">
             <button id="close">X</button>
+            
             <div class="modal-info-container">
                 <img class="modal-img" src="${employee.picture.large}" alt="${employee.name.first}'s profile picture">
                 <h3 id="name" class="modal-name cap">${employee.name.first} ${employee.name.last}</h3>
@@ -74,8 +75,10 @@ function getModalView(employees) {
                 <p class="modal-text cap">${employee.location.city}</p><hr>
                 <p class="modal-text">${employee.phone}</p>
                 <p class="modal-text cap">${employee.location.street.number} ${employee.location.street.name}, ${employee.location.state} ${employee.location.postcode}</p>
-                <p class="modal-text">Birthday:${birthday}</p>
+                <p class="modal-text">Birthday: ${birthday}</p>
              </div>
+            <button id="next">></button>
+            <button id="prev"><</button>
         </div>
         `;
         modalContainer.style.display="block";
@@ -84,6 +87,28 @@ function getModalView(employees) {
         close.addEventListener("click",(event)=>{
             modalContainer.style.display="none";
         });
+
+        const next=document.getElementById("next");
+        const prev=document.getElementById("prev");
+        prev.addEventListener("click",()=>{
+            if(index===0){
+                modal(employees[11],11);
+            }else{
+                modal(employees[index-1],index-1);
+            }
+            
+        });
+
+        next.addEventListener("click",()=>{
+            if(index===11){
+                modal(employees[0],0);
+            }else{
+                modal(employees[index+1],index+1);
+            }
+        });
+
+        
+        
 
     }
 

@@ -95,6 +95,22 @@ h1 {
     border:none;
 }
 
+#next{
+    position: absolute;
+    right:0;
+    top:80px;
+    background-color: white;
+    border:none;
+}
+
+#prev{
+    position: absolute;
+    left:0;
+    top:80px;
+    background-color: white;
+    border:none;
+
+}
 .modal-info-container {
     padding:30px;
     text-align: center;
