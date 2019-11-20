@@ -42,6 +42,9 @@ function mapInformation(data) {
     gridContainer.innerHTML = employee;
 
     getModalView(employees);
+
+    
+  
 }
 
 
@@ -61,6 +64,7 @@ function getModalView(employees) {
         const modalContainer = document.getElementById("modal-container");
         modalContainer.innerHTML = `
         <div class="modal">
+            <button id="close">X</button>
             <div class="modal-info-container">
                 <img class="modal-img" src="${employee.picture.large}" alt="${employee.name.first}'s profile picture">
                 <h3 id="name" class="modal-name cap">${employee.name.first} ${employee.name.last}</h3>
@@ -69,12 +73,18 @@ function getModalView(employees) {
                 <p class="modal-text">${employee.phone}</p>
                 <p class="modal-text cap">${employee.location.street.number} ${employee.location.street.name}, ${employee.location.state} ${employee.location.postcode}</p>
                 
+             </div>
         </div>
-    </div>
         `;
         modalContainer.style.display="block";
+        const close=document.getElementById("close");
+        console.log(close);
+        close.addEventListener("click",(event)=>{
+            modalContainer.style.display="none";
+        });
+
+      
     }
+
+   
 }
-// ------------------------------------------
-//  POST DATA
-// ------------------------------------------
