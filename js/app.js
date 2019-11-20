@@ -61,15 +61,15 @@ function getModalView(employees) {
         const modalContainer = document.getElementById("modal-container");
         modalContainer.innerHTML = `
         <div class="modal">
-        <div class="modal-info-container">
-            <img class="modal-img" src="${employee.picture.large}" alt="${employee.name.first}'s profile picture">
-            <h3 id="name" class="modal-name cap">${employee.name.first} ${employee.name.last}</h3>
-            <p class="modal-text">${employee.email}</p>
-            <p class="modal-text cap">${employee.location.city}</p><hr>
-            <p class="modal-text">${employee.phone}</p>
-            <p class="modal-text cap">${employee.location.street.number} ${employee.location.street.name}, ${employee.location.state} ${employee.location.postcode}</p>
-            
-      </div>
+            <div class="modal-info-container">
+                <img class="modal-img" src="${employee.picture.large}" alt="${employee.name.first}'s profile picture">
+                <h3 id="name" class="modal-name cap">${employee.name.first} ${employee.name.last}</h3>
+                <p class="modal-text">${employee.email}</p>
+                <p class="modal-text cap">${employee.location.city}</p><hr>
+                <p class="modal-text">${employee.phone}</p>
+                <p class="modal-text cap">${employee.location.street.number} ${employee.location.street.name}, ${employee.location.state} ${employee.location.postcode}</p>
+                
+        </div>
     </div>
         `;
         modalContainer.style.display="block";
