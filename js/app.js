@@ -106,11 +106,18 @@ function getModalView(employees) {
                 modal(employees[index+1],index+1);
             }
         });
-
-        
-        
-
     }
 
    
 }
+
+
+//-------------------------------------------
+// Filter By Username
+//-------------------------------------------
+
+const filter =document.getElementById("filterName");
+filter.addEventListener("",()=>{
+    console.log(filer.textContent);
+
+});
